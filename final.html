@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://sonaphilip0012.github.io/Teaching_Music_Fundementals_using_dsp/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching Music Fundementals</title>
+  <style>
+    /* Style for the button */
+    .custom-button {
+        background-color: transparent; /* Transparent background */
+        color: #0074d9; /* Standard blue color for text */
+        border: 2px solid #0074d9; /* Standard blue border with 2px width */
+        padding: 10px 28px; /* Increase padding to make it bigger */
+        border-radius: 10px; /* Add rounded edges */
+        font-size: 18px; /* Increase font size */
+        cursor: pointer; /* Add a pointer cursor on hover */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+
+    /* Hover effect: Change background color to the stroke color */
+    .custom-button:hover {
+        background-color: #0074d9; /* Standard blue color */
+        color: #fff; /* Text color (white) */
+    }
+    .image-container {
+            border: 2px solid black; /* Black border with 2px width */
+            padding: 10px; /* Add some padding to the container */
+            text-align: center; /* Center-align the images within the container */
+        }
+
+        /* Style for images */
+        .image-container img {
+            max-width: 100%; /* Make sure images don't exceed their container's width */
+            margin: 10px; /* Add some margin between images */
+        }
+</style>
+</head>
+  <body>                    
+
+
+        <div class="brand">
+            <h1><u>TEACHING MUSIC FUNDAMENTALS USING WEB-BASED INTERACTIVE PLATFORM
+              AND REAL-TIME AUDIO ANALYSIS</u></h1>
+          </a>
+        </div>
+
+        <h2 class="section-title">About</h2>
+        <p>Music education is undergoing a transformative shift with the integration of cutting-edge technology. This research paper explores a groundbreaking approach to teaching 
+          music fundamentals, leveraging a web-based interactive platform and real-time audio analysis. 
+          Traditional music instruction is enriched by interactive tools that empower students to visualize,
+           experiment with, and deeply comprehend musical elements, from fundamental notes to intricate 
+           melodies. Real-time audio analysis using DSP technology further enhances the learning 
+           experience, offering immediate feedback and correction. This paper underscores the potential of 
+           these innovative techniques to revolutionize music education, fostering creativity and a 
+           profound understanding of music's intricate tapestry.</p> 
+     
+  <!-- End About Section -->  
+ 
+  <!-- Measures Section -->
+  <h2 class="section-title">Implementation</h2>
+  <ul>
+            <h3><li>Web-Based Interactive Learning Platform </li></h3>
+            <p>We have utilized Colab to build a user-friendly web-based interactive platform.</p>
+            <div class="image-container">
+              <p>The first set of experiments begins with a fundamental sine function and explores
+                 multiple attributes with interactive sliders.It includes fundamental notes 
+                 ("swaras"), ragas, taals, visual representations of ADSR Envelopes, and harmonics to enrich 
+                 the musical experience, providing an engaging platform for students to explore signal processing 
+                 in music and thus create a melody. The visualization is shown below:</p>
+              <img src="images/sine.png" alt="sine" width="600">
+              <img src="images/dadra.png" alt="dadra" width="900">
+              <img src="images/bhoopali_with_reverb.png" alt="bhoopali_with_reverb" width="700">
+              <img src="images/alankar.png" alt="alankar" width="900">
+              <img src="images/ADSR.png" alt="ADSR" width="700">
+              <img src="images/synthesized melody.png" alt="synthesized melody" width="700">
+              <br>
+              <br>
+              <a href="https://colab.research.google.com/drive/1lYsShhOJAjj81B46M9VZGn11SSiEJUUL?usp=sharing" target="_blank"><button class="custom-button" type="button">The colab file can be accessed here</button></a>
+          </div>
+          <p></p>
+          <div class="image-container">
+            <p>The next set of experiments enhances user's musical understanding and engagement by detecting 
+              various attributes from a melody. These experiments include audio visualization, rhythmic and harmonic
+               separation, tempo, and beat detection tools, facilitating a deeper exploration of musical elements.
+               The visualization is shown below.</p>
+            <img src="images/mel.png" alt="mel" width="900">
+            <img src="images/amplitude envelope.png" alt="amplitude envelope" width="900">
+            <img src="images/beats.png" alt="beats" width="900">
+            <img src="images/carnatic swaras.png" alt="chromagram" width="900">
+            <br>
+            <br>
+            <a href="https://colab.research.google.com/drive/1JULIvxemzfzCW-Iv4lkvyBa3icu5_4gd?usp=sharing" target="_blank"><button class="custom-button" type="button">The colab file can be accessed here</button></a>
+        </div>
+
+        </div>
+        <h3><li>Real-Time Audio Analysis Using TMS320C6713</li></h3>
+
+            <p>Utilizing digital signal processors as pedagogical tools holds immense promise in enhancing the 
+              comprehension of music theory concepts. DSPs offer a dynamic platform to elucidate the intricate 
+              interplay between diverse waveforms, harmonics, and frequencies within the context of musical notes. <br>
+              The TMS320C6713 stands out with its advanced peripherals, contributing to efficient audio processing capabilities.  
+              The unified cache configuration minimizes memory conflicts and optimizes overall memory usage. 
+              Its seamless audio processing capabilities make it particularly valuable for innovative educational
+               approaches. These attributes open doors for enhanced music education and hold the potential to drive 
+               advancements in audio processing techniques and technologies. <br>
+              We have effectively used TMS320C6713 for three music information retrieval tasks in Indian classical
+               music: tonic identification, swara and raga recognition.</p>
+          </div>
+          <div class="Video">
+            
+            <!-- This is the first video -->
+        <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/IpmCuuqFwDU"
+                frameborder="0" allowfullscreen>
+        </iframe>
+        <br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/JgtQw2OW9q8?si=NxUW6A73TuuKCPYi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+        </iframe> 
+        
+        
+    </div>
+  </div></section>
+  <!-- End Measures Section -->
+</ul>
+
+
+
+</body></html>
