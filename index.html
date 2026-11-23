@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <!--
+========================================================================
+EDITING GUIDE — TESSA'S ENGINEERING PORTFOLIO (ONE HTML FILE)
+========================================================================
+1. TEXT & LINKS: Use Ctrl+F to search for project titles or EDIT:.
+2. COLORS & FONTS: At top of <style>, edit the :root variables.
+3. PROJECTS: Find <section id="projects">. Each <article class="project">
+   contains its own description, tags, achievements, and links.
+4. IMAGES: Replace a project's <svg> inside <div class="project-art">
+   with <img src="YOUR_IMAGE_URL" alt="Project photo" style="width:100%;height:320px;object-fit:cover">.
+   Use a hosted image URL or a base64 data URL to keep this HTML self-contained.
+5. ADD A PROJECT: Duplicate one entire <article class="project"> block.
+6. PUBLICATIONS: Find <section id="writing">.
+7. CONTACT: Find <section id="contact">.
+8. SAVE AS .html and double-click the file to preview in a browser.
+========================================================================
+-->
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="Tessa Ann Josy &mdash; Electrical engineer working across controls, embedded systems, and robotics." name="description"/>
+  <title>
+   Tessa Ann Josy &mdash; Engineering Portfolio
+  </title>
+  <!-- EDIT: This entire portfolio is ONE self-contained HTML file. Search for 'EDIT:' to find editable sections. -->
+  <style>
+   /* 01 — COLORS & FONTS: change your palette here */
+:root {
+    --paper:#f7f6f2;
+    --white:#fff;
+    --ink:#1c292b;
+    --muted:#647174;
+    --line:#dadfda;
+    --accent:#476c65;
+    --accent2:#dbe8e2;
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:Inter,'Segoe UI',Arial,sans-serif
+}
+
+* {
+    box-sizing:border-box
+}
+
+html {
+    scroll-behavior:smooth
+}
+
+body {
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font:15px/1.8 var(--sans);
+    -webkit-font-smoothing:antialiased
+}
+
+a {
+    color:inherit;
+    text-decoration:none
+}
+
+a:focus-visible {
+    outline:2px solid var(--accent);
+    outline-offset:5px
+}
+
+::selection {
+    background:#c6d9cf
+}
+
+.wrap {
+    max-width:1160px;
+    margin:auto;
+    padding:0 48px
+}
+
+.top {
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(247,246,242,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line)
+}
+
+.nav {
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between
+}
+
+.brand {
+    font:500 19px var(--serif);
+    letter-spacing:-.5px
+}
+
+.brand span {
+    color:var(--accent)
+}
+
+.navlinks {
+    display:flex;
+    gap:34px;
+    align-items:center
+}
+
+.navlinks a {
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:#536261;
+    transition:color .2s
+}
+
+.navlinks a:hover,.small-link:hover {
+    color:#1c7364
+}
+
+.navlinks .contact {
+    border:1px solid #a8b7ae;
+    padding:10px 18px;
+    color:var(--ink)
+}
+
+.eyebrow {
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-weight:700;
+    color:var(--accent)
+}
+
+/* 02 — HERO & INTRODUCTION LAYOUT */
+.hero {
+    padding:124px 0 110px;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:70px;
+    align-items:center
+}
+
+.hero h1 {
+    font:normal clamp(64px,8vw,112px)/1.03 var(--serif);
+    letter-spacing:-.07em;
+    margin:25px 0 22px
+}
+
+.hero h1 em {
+    font-weight:normal;
+    color:var(--accent)
+}
+
+.lead {
+    font:normal clamp(21px,2.3vw,29px)/1.48 var(--serif);
+    letter-spacing:-.018em;
+    max-width:650px
+}
+
+.hero p.desc {
+    max-width:590px;
+    color:#5c6968;
+    font-size:15px;
+    line-height:1.95
+}
+
+.actions {
+    display:flex;
+    gap:28px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-top:35px
+}
+
+.button {
+    background:var(--ink);
+    color:#fff;
+    padding:15px 23px;
+    font-size:12px;
+    letter-spacing:.07em;
+    font-weight:650;
+    display:inline-flex;
+    gap:22px;
+    align-items:center;
+    transition:background .2s,transform .2s
+}
+
+.button:hover {
+    background:var(--accent);
+    transform:translateY(-2px)
+}
+
+.small-link {
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.06em;
+    border-bottom:1px solid #8b9d96;
+    padding-bottom:5px
+}
+
+.hero-visual {
+    height:480px;
+    position:relative;
+    display:grid;
+    place-items:center;
+    background:#e9ece6;
+    overflow:hidden
+}
+
+.hero-visual:before {
+    content:'';
+    position:absolute;
+    inset:18px;
+    border:1px solid #d1d9d0
+}
+
+.hero-visual svg {
+    width:92%;
+    max-height:92%;
+    opacity:.9
+}
+
+.hero-visual .visual-caption {
+    position:absolute;
+    bottom:30px;
+    left:34px;
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#6e817a
+}
+
+.section {
+    border-top:1px solid var(--line);
+    padding:100px 0
+}
+
+.section-head {
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    align-items:end;
+    margin-bottom:48px
+}
+
+.section h2,.contact-section h2 {
+    font:normal clamp(43px,5vw,68px)/1.1 var(--serif);
+    letter-spacing:-.055em;
+    margin:12px 0 0
+}
+
+.section-head p {
+    max-width:365px;
+    color:var(--muted);
+    font-size:14px;
+    margin:0
+}
+
+.number {
+    font-size:11px;
+    color:var(--accent);
+    letter-spacing:.18em;
+    font-weight:700
+}
+
+.about-grid {
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:110px
+}
+
+.about-copy {
+    font-size:17px;
+    line-height:2;
+    color:#445251
+}
+
+.about-copy p:first-child {
+    margin-top:0
+}
+
+.interest-list {
+    border-top:1px solid var(--line)
+}
+
+.interest {
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font:normal 20px var(--serif)
+}
+
+.interest span {
+    color:#8b9e96;
+    font:12px var(--sans)
+}
+
+.projects {
+    display:grid;
+    gap:0
+}
+
+/* 03 — PROJECT CARDS */
+.project {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:66px;
+    align-items:center;
+    padding:45px 0 75px;
+    border-bottom:1px solid var(--line)
+}
+
+.project:nth-child(even) .project-art {
+    order:2
+}
+
+.project-art {
+    min-height:320px;
+    background:#e9eee9;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center
+}
+
+.project-art svg {
+    width:100%;
+    height:320px
+}
+
+.project-art .corner {
+    position:absolute;
+    bottom:19px;
+    left:24px;
+    font-size:10px;
+    letter-spacing:.13em;
+    color:#5f766d;
+    text-transform:uppercase
+}
+
+.project h3 {
+    font:normal clamp(30px,3.2vw,43px)/1.2 var(--serif);
+    letter-spacing:-.045em;
+    margin:14px 0 16px
+}
+
+.project p {
+    color:#5d6b6b;
+    line-height:1.9
+}
+
+.tags {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:25px
+}
+
+.tags span {
+    font-size:11px;
+    color:#536a62;
+    background:#e8ede7;
+    padding:6px 11px
+}
+
+.project-index {
+    font-size:12px;
+    color:var(--accent);
+    font-weight:700;
+    letter-spacing:.13em
+}
+
+.project-note {
+    font-size:11px;
+    color:#89918e;
+    margin-top:18px;
+    font-style:italic
+}
+
+.timeline {
+    border-top:1px solid var(--line)
+}
+
+.job {
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:35px;
+    padding:30px 0;
+    border-bottom:1px solid var(--line)
+}
+
+.job time {
+    color:#72817d;
+    font-size:12px
+}
+
+.job h3 {
+    font:normal 27px/1.3 var(--serif);
+    margin:0 0 5px
+}
+
+.job .org {
+    font-size:13px;
+    color:var(--accent);
+    font-weight:650
+}
+
+.job p {
+    max-width:700px;
+    color:var(--muted);
+    margin:10px 0 0
+}
+
+.two-col {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:90px
+}
+
+.simple-list {
+    list-style:none;
+    margin:0;
+    padding:0
+}
+
+.simple-list li {
+    padding:20px 0;
+    border-bottom:1px solid var(--line)
+}
+
+.simple-list strong {
+    display:block;
+    font:normal 19px/1.4 var(--serif)
+}
+
+.simple-list small {
+    display:block;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px
+}
+
+.publication {
+    padding:22px 0;
+    border-bottom:1px solid var(--line)
+}
+
+.publication strong {
+    display:block;
+    font:normal 19px/1.5 var(--serif)
+}
+
+.publication small {
+    color:var(--muted)
+}
+
+.skill-groups {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:45px
+}
+
+.skill-groups h3 {
+    font:normal 21px var(--serif);
+    margin:0 0 13px
+}
+
+.skill-groups p {
+    color:var(--muted);
+    font-size:14px;
+    margin:0
+}
+
+/* 04 — CONTACT & FOOTER */
+.contact-section {
+    background:var(--ink);
+    color:#fff;
+    padding:100px 0 90px
+}
+
+.contact-section .eyebrow {
+    color:#a7c7ba
+}
+
+.contact-section h2 {
+    max-width:850px;
+    font-size:clamp(48px,6vw,80px)
+}
+
+.contact-section p {
+    color:#bac9c5;
+    max-width:570px
+}
+
+.contact-section .button {
+    background:#e9f0ea;
+    color:var(--ink)
+}
+
+.contact-section .button:hover {
+    background:#c8dcd0
+}
+
+.contact-section .small-link {
+    color:#d9e6de;
+    border-color:#a3b9ae
+}
+
+footer {
+    background:var(--ink);
+    color:#a9bab4;
+    border-top:1px solid #3d4b4c;
+    padding:25px 0;
+    font-size:12px
+}
+
+.footer-flex {
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap
+}
+
+.reveal {
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .7s,transform .7s
+}
+
+.reveal.visible {
+    opacity:1;
+    transform:none
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior:auto
+    }
+
+    .reveal {
+        opacity:1;
+        transform:none;
+        transition:none
+    }
+
+}
+
+/* 05 — MOBILE RESPONSIVENESS */
+@media(max-width:850px) {
+    .wrap {
+        padding:0 24px
+    }
+
+    .hero {
+        padding:80px 0;
+        grid-template-columns:1fr;
+        gap:40px
+    }
+
+    .hero-visual {
+        height:330px
+    }
+
+    .about-grid,.two-col {
+        grid-template-columns:1fr;
+        gap:35px
+    }
+
+    .project {
+        grid-template-columns:1fr;
+        gap:25px
+    }
+
+    .project:nth-child(even) .project-art {
+        order:0
+    }
+
+    .job {
+        grid-template-columns:1fr;
+        gap:10px
+    }
+
+    .skill-groups {
+        grid-template-columns:1fr;
+        gap:26px
+    }
+
+    .section {
+        padding:70px 0
+    }
+
+    .section-head {
+        align-items:start;
+        flex-direction:column
+    }
+
+    .navlinks {
+        gap:17px
+    }
+
+    .navlinks a {
+        font-size:10px
+    }
+
+    .navlinks .contact {
+        display:none
+    }
+
+}
+
+@media(max-width:500px) {
+    .brand {
+        font-size:16px
+    }
+
+    .nav {
+        height:70px
+    }
+
+    .navlinks {
+        gap:12px
+    }
+
+    .hero h1 {
+        font-size:64px
+    }
+
+    .hero-visual {
+        height:280px
+    }
+
+    .project-art {
+        min-height:240px
+    }
+
+    .project-art svg {
+        height:240px
+    }
+
+}
+
+/* EDIT: Resource links and project-specific achievements */
+.resource-links {
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:17px
+}
+
+.resource-links a {
+    display:inline-block;
+    border:1px solid #b8c7bd;
+    padding:7px 12px;
+    font-size:11px;
+    font-weight:650;
+    letter-spacing:.025em;
+    color:#365e51;
+    transition:background .2s
+}
+
+.resource-links a:hover {
+    background:#e0e9e1
+}
+
+.achievement-line {
+    margin-top:17px;
+    padding:12px 15px;
+    border-left:2px solid var(--accent);
+    background:#eef1ea;
+    color:#40574d;
+    font-size:13px;
+    line-height:1.6
+}
+
+.achievement-line b {
+    font-weight:700
+}
+
+.publication .resource-links {
+    margin-top:9px
+}
+
+.source-note {
+    font-size:11px;
+    color:#75847c;
+    margin-top:9px
+}
+
+/* EDIT: Project awards list — edit the <li> text under Sensorium to revise awards. */
+.award-list {
+    margin:9px 0 0;
+    padding-left:19px
+}
+
+.award-list li {
+    padding:3px 0;
+    line-height:1.65
+}
+
+.award-list strong {
+    font-weight:750;
+    color:#263e35
+}
+
+/* EDIT: Nine EV features are bold <strong> elements in the EV project paragraph. */
+  </style>
+  <!-- EDIT: All supplied resource links are included below. Confirm access permissions on Drive files, and verify additional award details from LinkedIn posts. -->
+
+  <!--
+  =====================================================================
+  ORIGINAL, BUT REFINED — VISUAL EDITING GUIDE
+  =====================================================================
+  Your original copy, all six project SVG illustrations, links, dates,
+  awards, and publications remain unchanged.
+
+  EDIT COLORS: Change the original :root palette near the first <style>.
+  EDIT SPACING: See .wrap, .hero, .section, and .project below.
+  EDIT TYPOGRAPHY: See .hero h1, .section h2, .project h3 below.
+  EDIT MOBILE NAVIGATION: See @media(max-width: 860px) below.
+  EDIT ORIGINAL ARTWORK: Search for <div class="project-art"> and
+     replace its SVG with your own image only if you want to.
+  EDIT PROJECT DETAILS: Search for the existing project title in the HTML.
+  EDIT LINKS: Search for class="resource-links" in the original HTML.
+  PUBLISH: Save this file as index.html and upload to GitHub Pages.
+  =====================================================================
+  -->
+  <style id="original-refined-styles">
+    /* EDIT: These styles gently enhance the original design; the first
+       <style> above contains your original palette and illustrations. */
+    :root {
+      --surface-soft: #eeefea;
+      --surface-white: #fffefa;
+      --deep-ink: #21312f;
+      --quiet-ink: #566461;
+      --hairline: #dce1da;
+      --shadow-soft: 0 20px 48px rgba(27, 49, 42, .065);
+    }
+
+    html { scroll-padding-top: 92px; }
+    body { font-size: 15px; line-height: 1.78; overflow-x: clip; }
+    .wrap { max-width: 1220px; padding-inline: clamp(24px, 4.5vw, 64px); }
+    .top {
+      background: rgba(247, 246, 242, .96);
+      border-bottom: 1px solid rgba(80, 104, 92, .16);
+      box-shadow: 0 5px 22px rgba(22, 37, 32, .025);
+    }
+    .nav { height: 76px; gap: 28px; }
+    .brand {
+      font-size: 21px; letter-spacing: -.055em;
+      white-space: nowrap;
+    }
+    .brand span { font-family: var(--sans); }
+    .navlinks { gap: clamp(17px, 2.4vw, 34px); }
+    .navlinks a {
+      position: relative;
+      font-size: 11px; letter-spacing: .115em;
+      color: #56655f; transition: color .2s ease;
+    }
+    .navlinks a:not(.contact)::after {
+      content: ''; position: absolute; left: 0; right: 100%;
+      bottom: -10px; height: 1px; background: var(--accent);
+      transition: right .25s ease;
+    }
+    .navlinks a:not(.contact):hover::after,
+    .navlinks a[aria-current="location"]::after { right: 0; }
+    .navlinks a[aria-current="location"] { color: var(--ink); }
+    .navlinks .contact {
+      border: 1px solid #b6c5b9;
+      border-radius: 3px;
+      padding: 10px 16px;
+      transition: background .2s, border-color .2s;
+    }
+    .navlinks .contact:hover { background: #e6ede5; border-color: #9eafa3; }
+    .menu-toggle { display: none; }
+    .reading-progress {
+      height: 2px; width: 0; position: absolute; bottom: -1px; left: 0;
+      background: var(--accent); pointer-events: none;
+      transition: width .07s linear;
+    }
+
+    /* EDIT: Homepage introduction and ORIGINAL abstract hero SVG. */
+    .hero {
+      padding-top: clamp(86px, 9vw, 132px);
+      padding-bottom: clamp(90px, 9vw, 128px);
+      grid-template-columns: minmax(0, 1.14fr) minmax(0, .86fr);
+      gap: clamp(42px, 6vw, 82px);
+    }
+    .eyebrow { font-size: 10px; letter-spacing: .21em; }
+    .hero h1 {
+      font-size: clamp(70px, 7.8vw, 110px);
+      letter-spacing: -.075em;
+      margin: 24px 0 24px;
+    }
+    .hero h1 em { font-style: italic; }
+    .lead {
+      max-width: 650px;
+      font-size: clamp(22px, 2.3vw, 29px);
+      line-height: 1.47;
+    }
+    .hero p.desc {
+      max-width: 570px;
+      font-size: 14px;
+      line-height: 1.95;
+      margin-top: 23px;
+    }
+    .actions { gap: 26px; margin-top: 31px; }
+    .button {
+      border-radius: 3px; padding: 14px 22px;
+      box-shadow: 0 8px 20px rgba(26, 45, 39, .07);
+      transition: transform .2s, background .2s, box-shadow .2s;
+    }
+    .button:hover { box-shadow: 0 12px 25px rgba(26, 45, 39, .11); }
+    .hero-visual {
+      height: clamp(360px, 39vw, 490px);
+      background: #e9ece6;
+      border: 1px solid #d8ded5;
+      box-shadow: var(--shadow-soft);
+      isolation: isolate;
+    }
+    .hero-visual::before { inset: 19px; border-color: #cfd9cf; }
+    .hero-visual svg { max-height: 90%; }
+    .hero-visual .visual-caption { bottom: 26px; left: 32px; }
+
+    /* EDIT: Section spacing and hierarchy. */
+    .section { padding: clamp(78px, 8vw, 112px) 0; border-color: var(--hairline); }
+    .section-head { margin-bottom: 45px; }
+    .section h2, .contact-section h2 {
+      font-size: clamp(42px, 5.2vw, 68px);
+      letter-spacing: -.065em;
+    }
+    .number { font-size: 10px; letter-spacing: .19em; }
+    .section-head p { line-height: 1.8; }
+    .about-grid { grid-template-columns: 1.13fr .87fr; gap: clamp(42px, 8vw, 118px); }
+    .about-copy { max-width: 640px; font-size: 16px; line-height: 1.98; }
+    .about-copy p + p { margin-top: 19px; }
+    .interest { padding: 19px 2px; font-size: 20px; }
+    .interest span { font-size: 11px; }
+
+    /* EDIT: Project layout. Every ORIGINAL SVG illustration is retained.
+       The links occupy their own row below each project's description. */
+    .projects { gap: 0; }
+    .project {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0 clamp(32px, 5.4vw, 78px);
+      padding: clamp(50px, 5.6vw, 78px) 0;
+      align-items: center;
+      border-color: var(--hairline);
+    }
+    .project:first-child { padding-top: 10px; }
+    .project:last-child { border-bottom: none; padding-bottom: 0; }
+    .project > .project-art {
+      grid-column: 1; grid-row: 1 / span 2;
+      align-self: stretch;
+      min-height: 325px;
+      border: 1px solid #d9e1d9;
+      border-radius: 4px;
+      box-shadow: 0 14px 35px rgba(35, 63, 51, .045);
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .project:hover > .project-art {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 42px rgba(35, 63, 51, .085);
+    }
+    .project-art svg { width: 100%; height: clamp(295px, 30vw, 390px); }
+    .project-art .corner {
+      bottom: 16px; left: 20px; right: 16px;
+      font-size: 9px; line-height: 1.4;
+      letter-spacing: .11em;
+    }
+    .project > div:nth-child(2) { grid-column: 2; grid-row: 1; align-self: end; }
+    .project > .resource-links {
+      grid-column: 2; grid-row: 2;
+      align-self: start; margin-top: 22px;
+    }
+    .project:nth-child(even) > .project-art { grid-column: 2; order: 0; }
+    .project:nth-child(even) > div:nth-child(2),
+    .project:nth-child(even) > .resource-links { grid-column: 1; }
+    .project-index { font-size: 10px; letter-spacing: .15em; }
+    .project h3 {
+      font-size: clamp(31px, 3.3vw, 43px);
+      line-height: 1.2; margin: 13px 0 18px;
+    }
+    .project p { font-size: 14px; line-height: 1.9; }
+    .tags { gap: 7px; margin-top: 24px; }
+    .tags span {
+      background: transparent;
+      border: 1px solid #d4dfd6;
+      color: #526c60;
+      border-radius: 2px;
+      padding: 5px 10px;
+      font-size: 10px;
+    }
+    .achievement-line {
+      background: #edf1eb;
+      border-left: 2px solid #688f7a;
+      border-radius: 0 3px 3px 0;
+      padding: 14px 16px;
+      font-size: 12px;
+      line-height: 1.75;
+    }
+    .award-list { margin-top: 10px; }
+    .award-list li { padding: 4px 0; }
+    .resource-links { gap: 9px; }
+    .resource-links a {
+      border-color: #c0cec3;
+      border-radius: 2px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, .42);
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .resource-links a:hover {
+      background: #e5eee6; border-color: #98b5a0;
+      transform: translateY(-1px);
+    }
+
+    /* EDIT: Experience, education, skills and research. */
+    .timeline { border-color: var(--hairline); }
+    .job {
+      grid-template-columns: minmax(160px, .31fr) 1fr;
+      gap: clamp(26px, 5vw, 70px);
+      padding: 33px 0;
+      border-color: var(--hairline);
+    }
+    .job time { padding-top: 6px; font-size: 12px; }
+    .job h3 { font-size: 26px; letter-spacing: -.025em; }
+    .job p { max-width: 720px; font-size: 14px; line-height: 1.88; }
+    .two-col { gap: clamp(35px, 6vw, 90px); }
+    .simple-list li { padding: 21px 0; }
+    .skill-groups p { line-height: 1.85; }
+    .publication {
+      padding: 25px 24px;
+      margin: 0 -24px;
+      border-color: var(--hairline);
+      border-radius: 3px;
+      transition: background .2s ease;
+    }
+    .publication:hover { background: #f0f2ec; }
+    .publication strong { max-width: 850px; }
+    .publication .resource-links { margin-top: 13px; }
+
+    /* EDIT: Contact and footer. Original wording is unchanged. */
+    .contact-section {
+      padding: clamp(85px, 8vw, 116px) 0 88px;
+      background: #20312f;
+    }
+    .contact-section h2 { max-width: 820px; }
+    .contact-section p { line-height: 1.9; }
+    footer { background: #20312f; }
+
+    /* Small floating back-to-top control. Icon only; no copy added. */
+    .back-to-top {
+      position: fixed; right: 25px; bottom: 25px;
+      z-index: 18; width: 44px; height: 44px;
+      display: grid; place-items: center;
+      background: #f9faf6; color: #34594b;
+      border: 1px solid #c7d4c9; border-radius: 50%;
+      box-shadow: 0 8px 25px rgba(27, 44, 36, .12);
+      opacity: 0; visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity .25s, visibility .25s, transform .25s;
+      cursor: pointer;
+    }
+    .back-to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+    .back-to-top:hover { background: #e8efe8; }
+    .back-to-top svg { width: 18px; height: 18px; }
+
+    @media (max-width: 1050px) {
+      .hero { gap: 42px; }
+      .project { gap: 0 38px; }
+      .project h3 { font-size: 35px; }
+      .project-art svg { height: 315px; }
+    }
+
+    /* EDIT: Mobile/tablet layout and accessible dropdown navigation. */
+    @media (max-width: 860px) {
+      html { scroll-padding-top: 76px; }
+      .wrap { padding-inline: 26px; }
+      .nav { height: 70px; }
+      .menu-toggle {
+        width: 42px; height: 42px;
+        display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 5px;
+        margin-left: auto;
+        border: 1px solid #cbd7cd;
+        background: #f7f6f2; border-radius: 3px;
+        cursor: pointer;
+      }
+      .menu-toggle span {
+        display: block; width: 19px; height: 1.5px;
+        background: #36594d;
+        transition: transform .2s, opacity .2s;
+      }
+      .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(6.5px) rotate(45deg); }
+      .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+      .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-6.5px) rotate(-45deg); }
+      .navlinks {
+        display: none;
+        position: absolute; top: calc(100% + 1px); left: 0; right: 0;
+        padding: 13px 26px 24px;
+        background: #f7f6f2;
+        border-bottom: 1px solid #d5ded4;
+        box-shadow: 0 16px 25px rgba(24, 45, 35, .08);
+        flex-direction: column; align-items: stretch; gap: 0;
+      }
+      .navlinks.is-open { display: flex; }
+      .navlinks a {
+        padding: 12px 0;
+        font-size: 12px;
+        border-bottom: 1px solid #e4e8e2;
+      }
+      .navlinks a:not(.contact)::after { display: none; }
+      .navlinks .contact {
+        display: block; align-self: flex-start;
+        margin-top: 16px; padding: 10px 15px;
+        border-bottom: 1px solid #b6c5b9;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 73px; padding-bottom: 85px;
+        gap: 45px;
+      }
+      .hero h1 { font-size: clamp(67px, 11vw, 91px); }
+      .hero-visual { height: 390px; max-width: 620px; width: 100%; }
+      .about-grid { grid-template-columns: 1fr; gap: 35px; }
+      .project {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        row-gap: 0;
+        padding: 54px 0;
+      }
+      .project > .project-art,
+      .project:nth-child(even) > .project-art {
+        grid-column: 1; grid-row: auto; order: 0;
+        align-self: auto; min-height: 290px;
+        margin-bottom: 28px;
+      }
+      .project > div:nth-child(2),
+      .project:nth-child(even) > div:nth-child(2) {
+        grid-column: 1; grid-row: auto; order: 0;
+      }
+      .project > .resource-links,
+      .project:nth-child(even) > .resource-links {
+        grid-column: 1; grid-row: auto; order: 0;
+        margin-top: 22px;
+      }
+      .project-art svg { height: 320px; }
+      .project h3 { font-size: clamp(33px, 5.5vw, 42px); }
+      .job { grid-template-columns: 160px 1fr; gap: 25px; }
+      .two-col { grid-template-columns: 1fr; gap: 55px; }
+      .section { padding: 78px 0; }
+      .section-head { margin-bottom: 37px; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { padding-inline: 21px; }
+      .nav { height: 66px; }
+      .brand { font-size: 19px; }
+      .navlinks { padding-inline: 21px; }
+      .hero { padding-top: 58px; padding-bottom: 72px; gap: 36px; }
+      .hero h1 { font-size: clamp(62px, 15vw, 78px); margin: 19px 0; }
+      .lead { font-size: 23px; }
+      .hero p.desc { font-size: 14px; }
+      .hero-visual { height: 305px; }
+      .hero-visual .visual-caption { left: 23px; bottom: 20px; font-size: 9px; }
+      .section { padding: 65px 0; }
+      .section h2 { font-size: clamp(40px, 11vw, 51px); }
+      .about-copy { font-size: 15px; }
+      .interest { font-size: 18px; }
+      .project { padding: 45px 0; }
+      .project > .project-art,
+      .project:nth-child(even) > .project-art { min-height: 250px; margin-bottom: 24px; }
+      .project-art svg { height: 260px; }
+      .project h3 { font-size: clamp(31px, 8.5vw, 38px); }
+      .project p { font-size: 13.5px; }
+      .project-art .corner { left: 15px; bottom: 14px; font-size: 8px; }
+      .tags span { font-size: 10px; }
+      .achievement-line { padding: 13px 12px; }
+      .resource-links a { font-size: 10px; }
+      .job { grid-template-columns: 1fr; gap: 10px; padding: 28px 0; }
+      .job h3 { font-size: 24px; }
+      .two-col { gap: 52px; }
+      .skill-groups { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+      .skill-groups h3 { font-size: 19px; }
+      .publication { margin-inline: -10px; padding-inline: 10px; }
+      .contact-section { padding: 77px 0 65px; }
+      .contact-section h2 { font-size: 48px; }
+      .back-to-top { right: 15px; bottom: 15px; width: 40px; height: 40px; }
+    }
+
+    @media (max-width: 365px) {
+      .skill-groups { grid-template-columns: 1fr !important; }
+      .hero h1 { font-size: 58px; }
+      .contact-section h2 { font-size: 41px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .project:hover > .project-art { transform: none; }
+    }
+  </style>
+ </head>
+ <body>
+  <!-- EDIT: Navigation links all point to sections within THIS HTML file. -->
+  <header class="top">
+   <nav aria-label="Main navigation" class="wrap nav">
+    <a class="brand" href="#home">
+     Tessa Ann Josy
+     <span>
+      .
+     </span>
+    </a>
+    <!-- EDIT MOBILE MENU: icon-only button. Text in navigation is unchanged. -->
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="portfolio-navigation" aria-expanded="false">
+     <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks" id="portfolio-navigation">
+     <a href="#about">
+      About
+     </a>
+     <a href="#projects">
+      Projects
+     </a>
+     <a href="#experience">
+      Experience
+     </a>
+     <a href="#writing">
+      Research
+     </a>
+     <a class="contact" href="#contact">
+      Get in touch &nearrow;
+     </a>
+    </div>
+   </nav>
+   <div class="reading-progress" aria-hidden="true"></div>
+  </header>
+  <main>
+   <!-- 01 — HERO / INTRO -->
+   <section class="wrap hero" id="home">
+    <div class="reveal">
+     <div class="eyebrow">
+      Electrical engineer &middot; Virginia Tech
+     </div>
+     <!-- EDIT: Hero heading and introduction -->
+     <h1>
+      Hi, I'm
+      <br/>
+      <em>
+       Tessa.
+      </em>
+     </h1>
+     <p class="lead">
+      I build at the intersection of
+      <em>
+       control systems, embedded software
+      </em>
+      and robotics.
+     </p>
+     <p class="desc">
+      I'm pursuing an M.S. in Electrical Engineering at Virginia Tech. Before graduate school, I spent two years developing vehicle control algorithms used on real electric scooters. I'm drawn to engineering that moves beyond simulation and into the physical world.
+     </p>
+     <div class="actions">
+      <a class="button" href="#projects">
+       Explore my work
+       <span aria-hidden="true">
+        &nearrow;
+       </span>
+      </a>
+      <a class="small-link" href="https://www.linkedin.com/in/tessa-ann-josy/" rel="noopener noreferrer" target="_blank">
+       LinkedIn &nearrow;
+      </a>
+      <!-- EDIT: To add your resume, host the PDF and insert its URL in a new link here. -->
+     </div>
+    </div>
+    <!-- EDIT: Replace the decorative graphic below with a personal photograph if desired. Keep the container and use an <img> with width:100%;height:100%;object-fit:cover. -->
+    <div aria-label="Abstract technical illustration" class="hero-visual reveal">
+     <svg aria-label="Minimal geometric engineering illustration" role="img" viewbox="0 0 420 440">
+      <defs>
+       <pattern height="24" id="dots" patternunits="userSpaceOnUse" width="24">
+        <circle cx="2" cy="2" fill="#b4c4b9" r="1">
+        </circle>
+       </pattern>
+      </defs>
+      <rect fill="url(#dots)" height="440" width="420">
+      </rect>
+      <circle cx="210" cy="205" fill="none" r="132" stroke="#7e9a8d" stroke-width="1">
+      </circle>
+      <circle cx="210" cy="205" fill="none" r="99" stroke="#7e9a8d" stroke-dasharray="3 8" stroke-width="1">
+      </circle>
+      <circle cx="210" cy="205" fill="#d1ded5" r="66" stroke="#698d7d" stroke-width="1.5">
+      </circle>
+      <path d="M55 205 H365 M210 50 V360" stroke="#9bb4a6" stroke-width="1">
+      </path>
+      <path d="M85 300 L165 240 L210 205 L265 150 L335 105" fill="none" stroke="#355e52" stroke-width="3">
+      </path>
+      <g fill="#355e52">
+       <circle cx="85" cy="300" r="5">
+       </circle>
+       <circle cx="165" cy="240" r="5">
+       </circle>
+       <circle cx="210" cy="205" r="6">
+       </circle>
+       <circle cx="265" cy="150" r="5">
+       </circle>
+       <circle cx="335" cy="105" r="5">
+       </circle>
+      </g>
+      <path d="M90 90 h70 m-35 -35 v70 M300 300 h55 m-28 -28 v55" stroke="#9ab0a3" stroke-width="1">
+      </path>
+     </svg>
+     <div class="visual-caption">
+      Model &rarr; Design &rarr; Build &rarr; Test
+     </div>
+    </div>
+   </section>
+   <!-- 02 — ABOUT ME -->
+   <section class="section" id="about">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <div class="number">
+        01 / ABOUT
+       </div>
+       <h2>
+        A little about me.
+       </h2>
+      </div>
+     </div>
+     <div class="about-grid">
+      <div class="about-copy reveal">
+       <p>
+        I like understanding how things work and then build something upon that proves it. My experience ranges from production vehicle controls to assistive navigation hardware and autonomous vehicle projects.
+       </p>
+       <p>
+        Graduate school is a chance for me to go deeper into the fundamentals of dynamics, feedback and intelligent systems while continuing to work on practical engineering problems.
+       </p>
+       <!-- EDIT: Add a more personal paragraph or hobbies here if you'd like. -->
+      </div>
+      <div class="reveal">
+       <div class="eyebrow" style="margin-bottom:16px">
+        What I'm drawn to
+       </div>
+       <div class="interest-list">
+        <div class="interest">
+         Control systems
+         <span>
+          01
+         </span>
+        </div>
+        <div class="interest">
+         Robotics &amp; autonomy
+         <span>
+          02
+         </span>
+        </div>
+        <div class="interest">
+         Perception &amp; sensing
+         <span>
+          03
+         </span>
+        </div>
+        <div class="interest">
+         Embedded systems
+         <span>
+          04
+         </span>
+        </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- 03 — PROJECTS (edit each article independently) -->
+   <section class="section" id="projects">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <div class="number">
+        02 / SELECTED WORK
+       </div>
+       <h2>
+        Things I've built.
+       </h2>
+      </div>
+     </div>
+     <div class="projects">
+      <!-- EDIT: PROJECT 01. Replace the inline SVG with a photo of your Sensorium prototype, if available. Add a GitHub/demo link only when you have a working public URL. -->
+      <!-- EDIT: Sensorium awards are in the award-list below; update each <li> as needed. -->
+      <!-- EDIT PROJECT 01: Sensorium Assistive Navigation — description, awards and resource links below -->
+      <article class="project reveal">
+       <div class="project-art">
+        <svg aria-label="Abstract depth sensing visualization" role="img" viewbox="0 0 500 320">
+         <rect fill="#e5ece5" height="320" width="500">
+         </rect>
+         <g fill="none" opacity=".7" stroke="#aac3b3">
+          <path d="M0 265L250 60 500 265M0 220L250 60 500 220M0 175L250 60 500 175">
+          </path>
+          <path d="M65 320L250 60 435 320M145 320L250 60 355 320">
+          </path>
+         </g>
+         <rect fill="#c7d7ca" height="82" rx="7" stroke="#537968" stroke-width="2" width="110" x="195" y="123">
+         </rect>
+         <circle cx="250" cy="164" fill="none" r="26" stroke="#537968" stroke-width="3">
+         </circle>
+         <circle cx="250" cy="164" fill="#537968" r="9">
+         </circle>
+         <g fill="#537968">
+          <circle cx="90" cy="100" r="4">
+          </circle>
+          <circle cx="130" cy="230" r="4">
+          </circle>
+          <circle cx="380" cy="95" r="4">
+          </circle>
+          <circle cx="410" cy="245" r="4">
+          </circle>
+         </g>
+        </svg>
+        <div class="corner">
+         Depth sensing / Human-centered design
+        </div>
+       </div>
+       <div>
+        <div class="project-index">
+         PROJECT 01 &middot; 2023&mdash;2024
+        </div>
+        <h3>
+         Sensorium
+         <br/>
+         Assistive Navigation
+        </h3>
+        <p>
+         My first electronics project, built from an idea into a working prototype. We used Microsoft Kinect depth sensing and Arduino-controlled haptic gloves to help visually impaired users map their surroundings. I was mainly involved in the software part of the project.
+        </p>
+        <div class="tags">
+         <span>
+          Kinect
+         </span>
+         <span>
+          Arduino
+         </span>
+         <span>
+          Electronics
+         </span>
+         <span>
+          C++
+         </span>
+        </div>
+        <div class="achievement-line">
+         <b>
+          Project achievements
+         </b>
+         <ul class="award-list">
+          <li>
+            <strong>
+            First Prize &mdash; Project Expo
+            </strong>
+           &middot; APJAKTU Tech Fest (2024)
+          </li>
+          <li>
+            <strong>
+            6th place nationally out of 299 teams
+            </strong>
+           &middot; e-Yantra Innovation Challenge, IIT Bombay (2023)
+          </li>
+          <li>
+           <strong>
+            Finalist
+           </strong>
+           &middot; Sustainability Hackathon Challenge, EDII Ahmedabad (2023)
+          </li>
+          <li>
+           <strong>
+            Third Prize &mdash; Project Expo
+           </strong>
+           &middot; Summer Startup Festival (2022)
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="resource-links">
+        <a href="https://www.youtube.com/watch?v=gSvzIYVQO9w&amp;list=PLK0jpMYIBd6BNDwi2wEskkJuXh_7wq3q6&amp;index=13" rel="noopener noreferrer" target="_blank">
+         Watch demo &nearrow;
+        </a>
+        <a href="https://docs.google.com/presentation/d/1T3kkOBpnKz55mFnfdkS6QWNZacyg0X82/edit?usp=sharing&amp;ouid=116275179799099922253&amp;rtpof=true&amp;sd=true" rel="noopener noreferrer" target="_blank">
+         Project presentation &nearrow;
+        </a>
+        <a href="https://lnkd.in/p/eScunAEB" rel="noopener noreferrer" target="_blank">
+         Recognition post 1 &nearrow;
+        </a>
+        <a href="https://lnkd.in/p/ehjFBfD3" rel="noopener noreferrer" target="_blank">
+         Recognition post 2 &nearrow;
+        </a>
+       </div>
+      </article>
+      <!-- EDIT: PROJECT 02. Use only non-confidential examples from your EV work. -->
+      <!-- EDIT: All nine EV features are bold in the project description. Product link is below. -->
+      <!-- EDIT PROJECT 02: Production EV Control Algorithms — description, awards and resource links below -->
+      <article class="project reveal">
+       <div class="project-art">
+        <svg aria-label="Control system block diagram illustration" role="img" viewbox="0 0 500 320">
+         <rect fill="#e8e9e4" height="320" width="500">
+         </rect>
+         <g fill="none" stroke="#648779" stroke-width="2">
+          <path d="M38 160H103 M213 160H280 M390 160H465 M442 160V245H76V186">
+          </path>
+          <path d="M94 152l9 8-9 8 M271 152l9 8-9 8 M456 152l9 8-9 8">
+          </path>
+         </g>
+         <rect fill="#d2dfd5" height="80" rx="3" stroke="#648779" width="110" x="103" y="120">
+         </rect>
+         <rect fill="#d2dfd5" height="80" rx="3" stroke="#648779" width="110" x="280" y="120">
+         </rect>
+         <g fill="#385f54" font-family="Arial" font-size="15" text-anchor="middle">
+          <text x="158" y="155">
+           Control
+          </text>
+          <text x="158" y="174">
+           logic
+          </text>
+          <text x="335" y="155">
+           Vehicle
+          </text>
+          <text x="335" y="174">
+           system
+          </text>
+         </g>
+         <circle cx="76" cy="160" fill="#e8e9e4" r="7" stroke="#648779">
+         </circle>
+        </svg>
+        <div class="corner">
+         Model-based design
+        </div>
+       </div>
+       <div>
+        <div class="project-index">
+         PROJECT 02 &middot; INDUSTRY &middot; 2024&mdash;2026
+        </div>
+        <h3>
+         Production EV
+         <br/>
+         Control Algorithms
+        </h3>
+        <p>
+         Designed, validated and deployed nine production vehicle control algorithms at Simple Energy across 18,556 electric scooters. Features included
+         <strong>
+          Hill Hold
+         </strong>
+         ,
+         <strong>
+          Drop Safe
+         </strong>
+         ,
+         <strong>
+          Theft Tow
+         </strong>
+         ,
+         <strong>
+          Cruise Control
+         </strong>
+         ,
+         <strong>
+          Boost Mode
+         </strong>
+         ,
+         <strong>
+          Rapid Braking
+         </strong>
+         ,
+         <strong>
+          EcoLite Mode
+         </strong>
+         ,
+         <strong>
+          Regenerative Braking
+         </strong>
+         , and
+         <strong>
+          Thermal Derating
+         </strong>
+         . Developed MATLAB/Simulink and Stateflow models and generated production C code using Embedded Coder. 
+        </p>
+        <div class="tags">
+         <span>
+          MATLAB / Simulink
+         </span>
+         <span>
+          Stateflow
+         </span>
+         <span>
+          Embedded Coder
+         </span>
+         <span>
+          Python
+         </span>
+         <span>
+          CAN
+         </span>
+         <span>
+          Git
+         </span>
+        </div>
+        <div class="achievement-line">
+         <b>
+          Achievements
+         </b>
+         <ul class="award-list">
+          <li>
+            Received the 
+            <strong>
+            Sonic Performer Award
+            </strong>
+            for contributions to algorithm development (2026)
+          </li>
+            <li>
+            Filed a patent
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="resource-links">
+        <a href="https://www.simpleenergy.in/product/simpleone#safety-tech" rel="noopener noreferrer" target="_blank">
+         Explore Simple One safety &amp; technology &nearrow;
+        </a>
+       </div>
+      </article>
+      <!-- EDIT: PROJECT 03. Replace graphic with a BAJA photo or simulation screenshot. -->
+      <!-- EDIT PROJECT 03: Autonomous BAJA SAE Vehicle — description, awards and resource links below -->
+      <article class="project reveal">
+       <div class="project-art">
+        <svg aria-label="Autonomous navigation route illustration" role="img" viewbox="0 0 500 320">
+         <rect fill="#e5ebe8" height="320" width="500">
+         </rect>
+         <g stroke="#c5d4ca" stroke-width="1">
+          <path d="M0 70H500M0 130H500M0 190H500M0 250H500M70 0V320M140 0V320M210 0V320M280 0V320M350 0V320M420 0V320">
+          </path>
+         </g>
+         <path d="M80 260C155 250 128 130 240 165S330 90 430 60" fill="none" stroke="#4c786a" stroke-dasharray="8 7" stroke-width="4">
+         </path>
+         <circle cx="80" cy="260" fill="#4c786a" r="9">
+         </circle>
+         <circle cx="430" cy="60" fill="#4c786a" r="9">
+         </circle>
+         <g transform="translate(235 163) rotate(-15)">
+          <rect fill="#d0ded4" height="38" rx="12" stroke="#416f60" stroke-width="2" width="76" x="-38" y="-19">
+          </rect>
+          <rect fill="#416f60" height="8" rx="3" width="18" x="-25" y="-26">
+          </rect>
+          <rect fill="#416f60" height="8" rx="3" width="18" x="9" y="-26">
+          </rect>
+          <rect fill="#416f60" height="8" rx="3" width="18" x="-25" y="18">
+          </rect>
+          <rect fill="#416f60" height="8" rx="3" width="18" x="9" y="18">
+          </rect>
+         </g>
+        </svg>
+        <div class="corner">
+         Navigation / Embedded integration
+        </div>
+       </div>
+       <div>
+        <div class="project-index">
+         PROJECT 03 &middot; 2023&mdash;2024
+        </div>
+        <h3>
+         Autonomous
+         <br/>
+         BAJA SAE Vehicle
+        </h3>
+        <p>
+         Worked on autonomous navigation using MATLAB/Simulink and IPG CarMaker. Implemented Lane Keep Assist, Automatic Emergency Braking, Traffic signal detection, Adaptive Cruise control.
+        </p>
+        <div class="tags">
+         <span>
+          Autonomy
+         </span>
+         <span>
+          MATLAB
+         </span>
+         <span>
+          IPG CarMaker
+         </span>
+        </div>
+        <div class="achievement-line">
+         <b>
+          Achievement
+         </b>
+         &middot; First Place &mdash; Phase 2, aBAJA Autonomous Vehicle Competition, BAJA SAEINDIA
+        </div>
+       </div>
+       <div class="resource-links">
+        <a href="https://drive.google.com/file/d/1mbuGVYuFjQhv76UGe1veP-56ZU-QQl44/view?usp=sharing" rel="noopener noreferrer" target="_blank">
+         BAJA project file &nearrow;
+        </a>
+       </div>
+      </article>
+      <!-- EDIT: PROJECT 04. Replace illustration with actual MATLAB plots or a motor animation screenshot. -->
+      <!-- EDIT PROJECT 04: Buck Converter & DC Motor Control — description, awards and resource links below -->
+      <article class="project reveal">
+       <div class="project-art">
+        <svg aria-label="Motor speed response plot illustration" role="img" viewbox="0 0 500 320">
+         <rect fill="#e9eee8" height="320" width="500">
+         </rect>
+         <path d="M70 45V260H455" fill="none" stroke="#688777" stroke-width="2">
+         </path>
+         <path d="M70 112H455" stroke="#9eb8a8" stroke-dasharray="5 6" stroke-width="1">
+         </path>
+         <path d="M70 260C110 255 130 145 160 90S208 108 236 113S290 110 330 112H455" fill="none" stroke="#3d6e5c" stroke-width="3">
+         </path>
+         <path d="M70 260C120 250 150 175 200 135S285 115 350 112H455" fill="none" stroke="#9cae86" stroke-width="3">
+         </path>
+         <g fill="#577366" font-family="Arial" font-size="12">
+          <text x="72" y="35">
+           Speed
+          </text>
+          <text x="400" y="280">
+           Time
+          </text>
+          <text x="375" y="95">
+           Reference
+          </text>
+         </g>
+        </svg>
+        <div class="corner">
+         Dynamics / Feedback control
+        </div>
+       </div>
+       <div>
+        <div class="project-index">
+         PROJECT 04 &middot; ONGOING
+        </div>
+        <h3>
+         Buck Converter &amp;
+         <br/>
+         DC Motor Control
+        </h3>
+        <p>
+         Modeling a buck-converter-fed DC motor and comparing PI and LQR speed control approaches in MATLAB. Exploring state-space models, transient response, and the effects of disturbances.
+        </p>
+        <div class="tags">
+         <span>
+          MATLAB
+         </span>
+         <span>
+          PI / LQR
+         </span>
+         <span>
+          State-space
+         </span>
+         <span>
+          Power electronics
+         </span>
+        </div>
+       </div>
+      </article>
+      <!-- EDIT: Add real screenshots and links for these two additional projects if you want to feature them more prominently. -->
+      <!-- EDIT PROJECT 05: Interactive Computer Vision Platform — description, awards and resource links below -->
+      <article class="project reveal">
+       <div class="project-art">
+        <svg aria-label="Abstract computer vision features illustration" role="img" viewbox="0 0 500 320">
+         <rect fill="#e7ece8" height="320" width="500">
+         </rect>
+         <rect fill="none" height="220" stroke="#76978a" stroke-width="2" width="330" x="85" y="50">
+         </rect>
+         <g fill="none" stroke="#75988b">
+          <circle cx="210" cy="145" r="56">
+          </circle>
+          <circle cx="210" cy="145" r="27">
+          </circle>
+          <path d="M210 75V215M140 145H280M310 85L375 210M330 80L365 250">
+          </path>
+         </g>
+         <g fill="#4e7868">
+          <circle cx="210" cy="145" r="5">
+          </circle>
+          <circle cx="310" cy="85" r="5">
+          </circle>
+          <circle cx="375" cy="210" r="5">
+          </circle>
+          <circle cx="150" cy="225" r="5">
+          </circle>
+         </g>
+        </svg>
+        <div class="corner">
+         Computer vision / Interactive learning
+        </div>
+       </div>
+       <div>
+        <div class="project-index">
+         PROJECT 05 &middot; ONGOING
+        </div>
+        <h3>
+         Interactive Computer
+         <br/>
+         Vision Platform
+        </h3>
+        <p>
+         Developing an interactive platform for exploring image-processing methods such as SIFT, edge detection, and epipolar geometry, with real-time visualization of parameter changes.
+        </p>
+        <div class="tags">
+         <span>
+          Computer vision
+         </span>
+         <span>
+          Image processing
+         </span>
+         <span>
+          Visualization
+         </span>
+        </div>
+       </div>
+      </article>
+      <!-- EDIT: Colour-locating robot Drive link is attached to this project, not BAJA. -->
+      <!-- EDIT PROJECT 06: Colour-Locating Robot — description, awards and resource links below -->
+      <article class="project reveal">
+       <div class="project-art">
+        <svg aria-label="Color detection robot abstract illustration" role="img" viewbox="0 0 500 320">
+         <rect fill="#e8ede7" height="320" width="500">
+         </rect>
+         <g fill="none" stroke="#65877b" stroke-width="2">
+          <rect height="126" rx="10" width="172" x="164" y="96">
+          </rect>
+          <circle cx="210" cy="159" r="28">
+          </circle>
+          <circle cx="290" cy="159" r="28">
+          </circle>
+          <path d="M205 222v35m90-35v35m-55-161V65m-50 192h100">
+          </path>
+         </g>
+         <circle cx="210" cy="159" fill="#9ebaaa" r="14">
+         </circle>
+         <circle cx="290" cy="159" fill="#547f6c" r="14">
+         </circle>
+         <circle cx="240" cy="65" fill="#547f6c" r="8">
+         </circle>
+        </svg>
+        <div class="corner">
+         Electronics / Computer vision
+        </div>
+       </div>
+       <div>
+        <div class="project-index">
+         PROJECT 06 &middot; 2023
+        </div>
+        <h3>
+         Colour-Locating
+         <br/>
+         Robot
+        </h3>
+        <p>
+         Developed MATLAB computer vision algorithms and deployed them on an Arduino Nano for autonomous colour detection and localization.
+        </p>
+        <div class="tags">
+         <span>
+          MATLAB
+         </span>
+         <span>
+          Arduino Nano
+         </span>
+         <span>
+          Vision
+         </span>
+        </div>
+       </div>
+       <div class="resource-links">
+        <a href="https://drive.google.com/file/d/1zI-QIeF8pKjUc_a-ErwzR7Cv3M61lGmO/view?usp=sharing" rel="noopener noreferrer" target="_blank">
+         View colour-locating robot project &nearrow;
+        </a>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <!-- 04 — EXPERIENCE -->
+   <section class="section" id="experience">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <div class="number">
+        03 / EXPERIENCE
+       </div>
+       <h2>
+        Where I've worked.
+       </h2>
+      </div>
+     </div>
+     <div class="timeline">
+      <div class="job reveal">
+       <time>
+        Aug 2026 &mdash; Present
+       </time>
+       <div>
+        <h3>
+         Lab Manager &amp; Part-Time Researcher
+        </h3>
+        <div class="org">
+         SNACIL &middot; Virginia Tech
+        </div>
+        <p>
+         Supporting research hardware development and PCB design in KiCad, along with lab operations and an internal inventory tracking system.
+        </p>
+       </div>
+      </div>
+      <div class="job reveal">
+       <time>
+        Aug 2024 &mdash; Jul 2026
+       </time>
+       <div>
+        <h3>
+         Model-Based Design Engineer
+        </h3>
+        <div class="org">
+         Simple Energy &middot; Vehicle Dynamics &amp; Performance
+        </div>
+        <p>
+         Developed, validated, and deployed vehicle control algorithms; worked with firmware and integration teams to resolve issues and improve reliability. Received the Sonic Performer Award for contributions to algorithm development.
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section">
+    <div class="wrap two-col">
+     <div class="reveal">
+      <div class="number">
+       04 / EDUCATION
+      </div>
+      <h2 style="font:normal 45px var(--serif);letter-spacing:-.05em;margin:12px 0 25px">
+       Learning, always.
+      </h2>
+      <ul class="simple-list">
+       <li>
+        <strong>
+         M.S. Electrical Engineering
+        </strong>
+        <small>
+         Virginia Tech &middot; 2026&ndash;2028 (expected)
+        </small>
+       </li>
+       <li>
+        <strong>
+         B.Tech. Electronics &amp; Communication Engineering
+        </strong>
+        <small>
+         Government Engineering College Thrissur &middot; 2020&ndash;2024
+        </small>
+       </li>
+      </ul>
+     </div>
+     <div class="reveal">
+      <div class="number">
+       05 / TOOLKIT
+      </div>
+      <h2 style="font:normal 45px var(--serif);letter-spacing:-.05em;margin:12px 0 25px">
+       Tools I use.
+      </h2>
+      <div class="skill-groups" style="grid-template-columns:1fr 1fr;gap:24px">
+       <div>
+        <h3>
+         Software
+        </h3>
+        <p>
+         MATLAB, Simulink, Stateflow, Embedded Coder, Python, C++, Git
+        </p>
+       </div>
+       <div>
+        <h3>
+         Hardware &amp; systems
+        </h3>
+        <p>
+         KiCad, Arduino, CAN, CANalyzer, Microsoft Kinect, IPG CarMaker, Linux
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- 06 — PUBLICATIONS -->
+   <section class="section" id="writing">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <div class="number">
+        06 / RESEARCH &amp; WRITING
+       </div>
+       <h2>
+        Published work.
+       </h2>
+      </div>
+     </div>
+     <div class="reveal">
+      <div class="publication">
+       <strong>
+        System and Method for Estimating Battery State of Health of Battery Packs in a Vehicle
+       </strong>
+       <small>
+        Granted patent &middot; Simple Energy &middot; 2026
+       </small>
+       <!-- EDIT: Verify contents of this Drive folder; if not related to the patent, move the link to the relevant publication or project.-->
+       <div class="resource-links">
+        <a href="https://drive.google.com/drive/folders/1UD5iazdz5I0Ix7TgZ9xkpLORCwk9rm3p?usp=drive_link" rel="noopener noreferrer" target="_blank">
+         Publication resources &nearrow;
+        </a>
+       </div>
+      </div>
+      <div class="publication">
+       <strong>
+        Software Architecture for Autonomous Vehicles Using MATLAB Simulink
+       </strong>
+       <small>
+        SAE Technical Paper &middot; 2025
+       </small>
+       <div class="resource-links">
+        <a href="https://www.sae.org/papers/software-architecture-autonomous-vehicles-using-matlab-simulink-2025-28-0190" rel="noopener noreferrer" target="_blank">
+         Read SAE paper &nearrow;
+        </a>
+       </div>
+      </div>
+      <div class="publication">
+       <strong>
+        Teaching Indian Classical Music Using a Web-Based Interactive Platform and Real-Time Audio Analysis
+       </strong>
+       <small>
+        EUSIPCO &middot; Lyon, France &middot; 2024
+       </small>
+       <div class="resource-links">
+        <a href="https://ieeexplore.ieee.org/document/10715210" rel="noopener noreferrer" target="_blank">
+         Read IEEE paper &nearrow;
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- 07 — CONTACT -->
+   <section class="contact-section" id="contact">
+    <div class="wrap reveal">
+     <div class="eyebrow">
+      07 / CONTACT
+     </div>
+     <h2>
+      Have an interesting problem to solve?
+     </h2>
+     <p>
+      I'm always glad to connect about controls, embedded systems, robotics, research and engineering opportunities.
+     </p>
+     <div class="actions">
+      <a class="button" href="mailto:tessa.josy02@gmail.com">
+       Send me an email &nearrow;
+      </a>
+      <a class="small-link" href="https://www.linkedin.com/in/tessa-ann-josy/" rel="noopener noreferrer" target="_blank">
+       Connect on LinkedIn &nearrow;
+      </a>
+      <!-- EDIT: Add a GitHub link here after verifying your username. -->
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="wrap footer-flex">
+    <span>
+     &copy;
+     <span id="year">
+      2026
+     </span>
+     Tessa Ann Josy
+    </span>
+   </div>
+  </footer>
+  <!-- EDIT: Remove this button if you do not want the floating back-to-top control. -->
+  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 6-6 6 6"/><path d="M12 8v11"/></svg>
+  </button>
+  <script>
+   // Update copyright year automatically.
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal elements as you scroll.
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    } else {
+      document.querySelectorAll('.reveal').forEach((element) => element.classList.add('visible'));
+    }
+
+    // EDIT: Refined navigation / progress. Does not alter any portfolio text.
+    (() => {
+      const menuButton = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.navlinks');
+      const progress = document.querySelector('.reading-progress');
+      const backToTop = document.querySelector('.back-to-top');
+      const navAnchors = [...navLinks.querySelectorAll('a[href^="#"]')];
+
+      function closeMenu() {
+        navLinks.classList.remove('is-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation');
+      }
+      menuButton.addEventListener('click', () => {
+        const opened = !navLinks.classList.contains('is-open');
+        navLinks.classList.toggle('is-open', opened);
+        menuButton.setAttribute('aria-expanded', String(opened));
+        menuButton.setAttribute('aria-label', opened ? 'Close navigation' : 'Open navigation');
+      });
+      navAnchors.forEach(a => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+      });
+      document.addEventListener('click', event => {
+        if (!event.target.closest('.nav') && navLinks.classList.contains('is-open')) closeMenu();
+      });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 860) closeMenu();
+      });
+
+      const sections = navAnchors.map(a => ({
+        anchor: a,
+        section: document.querySelector(a.getAttribute('href'))
+      })).filter(item => item.section);
+      let ticking = false;
+      function updateOnScroll() {
+        const scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        progress.style.width = Math.min(100, Math.max(0, window.scrollY / scrollable * 100)) + '%';
+        backToTop.classList.toggle('is-visible', window.scrollY > 560);
+        const offset = window.scrollY + 155;
+        let active = null;
+        for (const item of sections) {
+          if (item.section.offsetTop <= offset) active = item.anchor;
+        }
+        navAnchors.forEach(a => {
+          if (a === active) a.setAttribute('aria-current', 'location');
+          else a.removeAttribute('aria-current');
+        });
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) { window.requestAnimationFrame(updateOnScroll); ticking = true; }
+      }, { passive: true });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+      });
+      updateOnScroll();
+    })();
+  </script>
+ </body>
+</html>
+
